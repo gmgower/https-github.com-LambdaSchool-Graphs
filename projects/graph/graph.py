@@ -51,7 +51,7 @@ class Graph:
         # if we have not visited, let's
             if current_node not in visited:
                 # mark as visited
-                print('current_node',current_node)
+                print('bft_current_node',current_node)
                 visited.add(current_node)
     
         # get the vertex's neighbors                
@@ -64,7 +64,28 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        stack = Stack()
+        
+        ## prime the pump with the first node
+        stack.push(starting_vertex)
+    
+        ## make a set to track visited nodes
+        visited = set()
+    
+        ## while the stack isn't empty
+        while stack.size() > 0:
+        ### pop off top of stack, this is our current node
+            current_node = stack.pop()
+        ### if we have not visited, then let's:
+            if current_node not in visited:
+        #### mark as visited
+                print('dft_current_node',current_node)
+                visited.add(current_node)
+    
+        #### get the vertex's neighbors            
+        #### put the current nodes's neighbors on teh stack
+                for next_vert in self.get_neighbors(current_node):
+                    stack.push(next_vert) 
 
     def dft_recursive(self, starting_vertex):
         """
