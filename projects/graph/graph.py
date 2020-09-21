@@ -10,21 +10,6 @@ class Graph:
 
     def __init__(self):
         self.vertices = {}
-        {
-         A: set(E,B),
-         B: set(C,D,A,F),
-         C: set(B),
-         D: set(B),
-         F: set(B),
-         E: set(E)
-        }
-
-        self.vertices = [
-            [],
-            [],
-            []
-        ]
-
         ## key: vertex_id
         ## value: set holding vertex's edges
 
@@ -35,17 +20,6 @@ class Graph:
         self.vertices[vertex_id] = set()
 
         # TC O(1)
-
-    # adjacency list time complexity: O(n)
-    def delete_vertex(self, vertex_id):
-        ## delete the key-value pari
-
-        ## find all references to the vertex which are in the neighbors
-
-    # adjacency list itme complexity: O(1)
-    def delete_edges(self, v1, v2):
-        # access v1, remove v2
-        # access v2, remove v1
 
     # adjacency list time complexity: O(1)
     def add_edge(self, v1, v2):
