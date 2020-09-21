@@ -101,7 +101,20 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass  # TODO
+        #base case
+        #if visited doesn't exits
+        if not visited:
+            #create a new set
+            visited = set()
+        # add starting vertex to visited
+        visited.add(starting_vertex)
+        # loop through vertices
+        for vert in self.vertices[starting_vertex]:
+        # check if it hasn't been visited
+            if vert not in visited:
+        # recursively call DTF
+                self.dfs_recursive(vert, visited)
+
 
     def bfs(self, starting_vertex, destination_vertex):
         """
@@ -173,6 +186,9 @@ class Graph:
         This should be done using recursion.
         """
         pass  # TODO
+        #base case
+        #if not visited
+        #create self 
 
 
 if __name__ == '__main__':
