@@ -177,7 +177,20 @@ class Graph:
         #### and add them to our Stack
                     s.push(neighbor)
 
-    def dfs_recursive(self, starting_vertex, destination_vertex):
+    # def dfs_recursive(self, starting_vertex, destination_vertex):
+    #     """
+    #     Return a list containing a path from
+    #     starting_vertex to destination_vertex in
+    #     depth-first order.
+
+    #     This should be done using recursion.
+    #     """
+    #     pass  # TODO
+    #     #base case
+    #     # In a seach, when are we done searching
+
+
+    def dfs_recursive(self, starting_vertex, destination_vertex, visited=set(), path=[]):
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
@@ -185,11 +198,27 @@ class Graph:
 
         This should be done using recursion.
         """
-        pass  # TODO
-        #base case
-        #if not visited
-        #create self 
+        if len(path) == 0:
+            path.append(starting_vertex)
+        # base case?
+        # In a search, when are we done searching?
+        if starting_vertex == destination_vertex:
+            return path
 
+        visited.add(starting_vertex)
+
+        neighbors = self.get_neighbors(starting_vertex)
+
+        if len(neighbors) == 0:
+            return None
+
+        for neighbor in neighbors:
+            if neighbor not in visited:
+                new_path = path + [neighbor]
+                result = self.dfs_recursive(neighbor, destination_vertex, visited, new_path)
+
+                if result is not None:
+                    return result
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
